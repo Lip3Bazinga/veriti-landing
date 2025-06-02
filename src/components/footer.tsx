@@ -1,19 +1,20 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react"
+import Logo from "../../public/logo-black.png"
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-[#000A20] text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Image
-              src="/veriti-logo.png"
+              src={Logo}
               alt="VERITI"
               width={120}
               height={40}
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto "
             />
             <p className="text-gray-400 text-sm leading-relaxed">
               Transformando a gestão financeira das empresas com soluções contábeis modernas e personalizadas.

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Linkedin, Mail, Award, Users, Target, Lightbulb, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image, { type StaticImageData } from "next/image"
 
 interface TeamMember {
   id: number
@@ -12,20 +13,25 @@ interface TeamMember {
   expertise: string[]
   email: string
   linkedin: string
-  avatar: string
+  avatar: StaticImageData
   color: string
 }
+
+import Img1 from "../../public/img1.jpg"
+import Img2 from "../../public/img2.jpeg"
+import Img3 from "../../public/img3.jpg"
+import Img4 from "../../public/img4.jpeg"
 
 const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Ana Silva",
-    role: "Sócio Fundador",
+    role: "Sócia Fundadora",
     description: "Especialista em planejamento tributário com mais de 15 anos de experiência.",
     expertise: ["Planejamento Tributário", "Consultoria Empresarial", "Gestão Financeira"],
     email: "ana@veriti.com.br",
     linkedin: "#",
-    avatar: "/img1.jpg",
+    avatar: Img1,
     color: "from-teal-400 to-blue-500",
   },
   {
@@ -36,7 +42,7 @@ const teamMembers: TeamMember[] = [
     expertise: ["Contabilidade", "Compliance", "Auditoria"],
     email: "carlos@veriti.com.br",
     linkedin: "#",
-    avatar: "/img2.jpeg",
+    avatar: Img2,
     color: "from-purple-400 to-pink-500",
   },
   {
@@ -47,23 +53,23 @@ const teamMembers: TeamMember[] = [
     expertise: ["Atendimento ao Cliente", "Gestão de Projetos", "Relacionamento"],
     email: "marina@veriti.com.br",
     linkedin: "#",
-    avatar: "/img3.jpg",
+    avatar: Img3,
     color: "from-green-400 to-teal-500",
   },
   {
     id: 4,
     name: "Roberto Lima",
-    role: "Especialista Tributária",
+    role: "Especialista Tributário",
     description: "Foco em otimização fiscal e estratégias tributárias avançadas.",
     expertise: ["Tributário", "Otimização Fiscal", "Consultoria"],
     email: "roberto@veriti.com.br",
     linkedin: "#",
-    avatar: "/img4.jpeg",
+    avatar: Img4,
     color: "from-orange-400 to-red-500",
   },
 ]
 
-function FloatingShape({ delay = 0, duration = 200 }) {
+function FloatingShape({ delay = 0, duration = 20 }) {
   return (
     <div
       className="absolute opacity-10 animate-pulse"
@@ -101,13 +107,12 @@ function TeamCard({ member, index, isVisible }: { member: TeamMember; index: num
             className={`relative w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 transition-all duration-500 ${isHovered ? "scale-110 border-teal-400/50" : ""
               }`}
           >
-            <img
-              src={member.avatar || ""}
+            <Image
+              src={member.avatar || "/placeholder.svg"}
               alt={member.name}
+              width={96}
+              height={96}
               className="w-full h-full object-cover"
-              onError={(e) => {
-                e.currentTarget.src = ""
-              }}
             />
             {/* Animated Ring */}
             <div
@@ -190,7 +195,7 @@ function TeamCard({ member, index, isVisible }: { member: TeamMember; index: num
 export function Team() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeStats, setActiveStats] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -205,13 +210,14 @@ export function Team() {
       },
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentRef = sectionRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])

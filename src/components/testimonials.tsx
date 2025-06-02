@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Quote, Star, ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image, { type StaticImageData } from "next/image"
 
 interface Testimonial {
   id: number
@@ -11,11 +12,16 @@ interface Testimonial {
   company: string
   content: string
   rating: number
-  avatar: string
+  avatar: StaticImageData
   location: string
   businessType: string
   videoUrl?: string
 }
+
+import Img1 from "../../public/img1.jpg"
+import Img2 from "../../public/img2.jpeg"
+import Img3 from "../../public/img3.jpg"
+import Img4 from "../../public/img4.jpeg"
 
 const testimonials: Testimonial[] = [
   {
@@ -26,7 +32,7 @@ const testimonials: Testimonial[] = [
     content:
       "A VERITI transformou completamente nossa gestão financeira. Em apenas 6 meses, conseguimos reduzir 40% dos custos tributários e ter uma visão clara do nosso crescimento. A equipe é excepcional!",
     rating: 5,
-    avatar: "/img1.jpg",
+    avatar: Img1,
     location: "São Paulo, SP",
     businessType: "Tecnologia",
   },
@@ -38,7 +44,7 @@ const testimonials: Testimonial[] = [
     content:
       "Trabalhar com a VERITI foi a melhor decisão que tomamos. Eles não são apenas contadores, são verdadeiros parceiros estratégicos. Nossa empresa cresceu 60% no último ano!",
     rating: 5,
-    avatar: "/img1.jpg",
+    avatar: Img2,
     location: "Rio de Janeiro, RJ",
     businessType: "Construção Civil",
   },
@@ -50,7 +56,7 @@ const testimonials: Testimonial[] = [
     content:
       "Como empreendedora, sempre tive dificuldades com a parte fiscal. A VERITI me deu a tranquilidade que eu precisava para focar no que amo fazer. Atendimento humanizado e resultados incríveis!",
     rating: 5,
-    avatar: "/img1.jpg",
+    avatar: Img3,
     location: "Belo Horizonte, MG",
     businessType: "Varejo",
   },
@@ -62,7 +68,7 @@ const testimonials: Testimonial[] = [
     content:
       "A expertise da VERITI na área da saúde é impressionante. Eles conhecem todas as particularidades do setor e nos ajudaram a otimizar nossa operação de forma surpreendente.",
     rating: 5,
-    avatar: "/img1.jpg",
+    avatar: Img4,
     location: "Curitiba, PR",
     businessType: "Saúde",
   },
@@ -74,7 +80,7 @@ const testimonials: Testimonial[] = [
     content:
       "Em 15 anos de mercado, nunca tivemos um parceiro contábil tão dedicado. A VERITI entende nosso negócio e sempre está um passo à frente com soluções inovadoras.",
     rating: 5,
-    avatar: "/img1.jpg",
+    avatar: Img1,
     location: "Porto Alegre, RS",
     businessType: "Logística",
   },
@@ -125,19 +131,18 @@ function TestimonialCard({
 
           {/* Content */}
           <blockquote className="text-gray-700 text-lg leading-relaxed mb-6 font-medium">
-            "{testimonial.content}"
+            &ldquo;{testimonial.content}&rdquo;
           </blockquote>
 
           {/* Author Info */}
           <div className="flex items-center space-x-4">
             <div className="relative">
-              <img
+              <Image
                 src={testimonial.avatar || "/placeholder.svg"}
                 alt={testimonial.name}
+                width={64}
+                height={64}
                 className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg"
-                onError={(e) => {
-                  e.currentTarget.src = "/placeholder.svg?height=64&width=64"
-                }}
               />
               {/* Online indicator */}
               <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
@@ -162,7 +167,7 @@ function TestimonialCard({
           >
             <div className="pt-4 border-t border-gray-100">
               <p className="text-sm text-gray-600 italic">
-                "Recomendo a VERITI para qualquer empresa que busca excelência em gestão financeira."
+                &ldquo;Recomendo a VERITI para qualquer empresa que busca excelência em gestão financeira.&rdquo;
               </p>
             </div>
           </div>
@@ -192,13 +197,14 @@ export function Testimonials() {
       },
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentRef = sectionRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
@@ -327,13 +333,12 @@ export function Testimonials() {
                 }`}
             >
               <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100 text-center">
-                <img
+                <Image
                   src={testimonial.avatar || "/placeholder.svg"}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full mx-auto mb-2 object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = "/placeholder.svg?height=48&width=48"
-                  }}
                 />
                 <h5 className="font-semibold text-sm text-gray-900 truncate">{testimonial.name}</h5>
                 <p className="text-xs text-gray-600 truncate">{testimonial.company}</p>

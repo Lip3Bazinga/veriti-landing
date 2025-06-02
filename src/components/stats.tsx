@@ -12,11 +12,10 @@ interface StatCardProps {
   value: number
   label: string
   prefix?: string
-  suffix?: string
   isVisible: boolean
 }
 
-function StatCard({ icon, value, label, prefix = "+", suffix = "", isVisible }: StatCardProps) {
+function StatCard({ icon, value, label, prefix = "+", isVisible }: StatCardProps) {
   const [currentValue, setCurrentValue] = useState(0)
 
   useEffect(() => {
@@ -117,13 +116,14 @@ export function Stats() {
       },
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    const currentRef = sectionRef.current
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
