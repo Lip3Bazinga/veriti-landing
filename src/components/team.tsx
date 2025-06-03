@@ -25,7 +25,7 @@ import Img4 from "../../public/img4.jpeg"
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Ana Silva",
+    name: "Marlon Barboza",
     role: "Sócia Fundadora",
     description: "Especialista em planejamento tributário com mais de 15 anos de experiência.",
     expertise: ["Planejamento Tributário", "Consultoria Empresarial", "Gestão Financeira"],
@@ -36,7 +36,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Carlos Mendes",
+    name: "Fernando Donegá",
     role: "Diretor Contábil",
     description: "Expert em contabilidade empresarial e compliance fiscal.",
     expertise: ["Contabilidade", "Compliance", "Auditoria"],
@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Marina Costa",
+    name: "Tatiabe Barboza",
     role: "Gerente de Relacionamento",
     description: "Responsável pelo atendimento personalizado e satisfação dos clientes.",
     expertise: ["Atendimento ao Cliente", "Gestão de Projetos", "Relacionamento"],
