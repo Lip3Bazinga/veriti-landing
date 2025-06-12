@@ -9,6 +9,8 @@ import { Footer } from "@/components/footer"
 import { Stats } from "@/components/stats"
 import { Team } from "@/components/team"
 import { Testimonials } from "@/components/testimonials"
+import { InstagramFeed } from "@/components/instagram-feed"
+import { OfficeLocation } from "@/components/office-location"
 
 export default function Home() {
   return (
@@ -20,7 +22,9 @@ export default function Home() {
       <Stats />
       <Team />
       <Testimonials />
-      <Plans />
+      {/* <InstagramFeed accessToken={process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN} /> */}
+      {/* <Plans /> */}
+      <OfficeLocation />
       <FAQ />
       <Contact />
       <Footer />

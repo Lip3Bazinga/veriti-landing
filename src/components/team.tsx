@@ -17,10 +17,10 @@ interface TeamMember {
   color: string
 }
 
-import Img1 from "../../public/img1.jpg"
-import Img2 from "../../public/img2.jpeg"
-import Img3 from "../../public/img3.jpg"
-import Img4 from "../../public/img4.jpeg"
+import Img1 from "../../public/images/img1.jpg"
+import Img2 from "../../public/images/img7.jpg"
+import Img3 from "../../public/images/img3.jpg"
+import Img4 from "../../public/images/img9.jpg"
 
 const teamMembers: TeamMember[] = [
   {
