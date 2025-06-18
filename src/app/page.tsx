@@ -23,7 +23,7 @@ export default function Home() {
       <Team />
       <Testimonials />
       {/* <InstagramFeed accessToken={process.env.NEXT_PUBLIC_INSTAGRAM_ACCESS_TOKEN} /> */}
-      {/* <Plans /> */}
+      <Plans />
       <OfficeLocation />
       <FAQ />
       <Contact />

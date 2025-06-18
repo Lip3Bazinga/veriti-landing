@@ -1,12 +1,20 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="pt-24 pb-12 md:pt-32 md:pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center text-white">
+    <section className="relative h-[100vh] bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+      <Image
+        src="/images/bg.png"
+        width={1920}
+        height={1080}
+        alt="Banner de fundo com imagem dos sócios da Veriti"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-60"
+      />
+      <div className="flex justify-start px-4 pt-[300px] relative z-10">
+        <div className="max-w-4xl  text-center text-white ">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Contabilidade e Gestão Tributária <span className="text-teal-400">Inteligente</span>
           </h1>
@@ -29,7 +37,7 @@ export function Hero() {
               size="lg"
               className="text-lg px-8 py-3 border-white text-white hover:bg-white hover:text-slate-900"
             >
-              <Link href="#services">Ver Serviços</Link>
+              <Link href="#services" className="text-black hover:text-teal-600">Ver Serviços</Link>
             </Button>
           </div>
 

@@ -7,8 +7,8 @@ export function Plans() {
   const plans = [
     {
       name: "Essencial",
-      price: "R$ 299",
-      period: "/mês",
+      // price: "R$ 299",
+      // period: "/mês",
       description: "Ideal para pequenas empresas e MEIs",
       features: [
         "Escrituração contábil básica",
@@ -21,8 +21,8 @@ export function Plans() {
     },
     {
       name: "Profissional",
-      price: "R$ 599",
-      period: "/mês",
+      // price: "R$ 599",
+      // period: "/mês",
       description: "Para empresas em crescimento",
       features: [
         "Tudo do plano Essencial",
@@ -36,8 +36,8 @@ export function Plans() {
     },
     {
       name: "Empresarial",
-      price: "R$ 1.299",
-      period: "/mês",
+      // price: "R$ 1.299",
+      // period: "/mês",
       description: "Solução completa para grandes empresas",
       features: [
         "Tudo do plano Profissional",
@@ -82,8 +82,8 @@ export function Plans() {
                 <CardTitle className="text-2xl font-bold text-gray-900">{plan.name}</CardTitle>
                 <CardDescription className="text-gray-600 mb-4">{plan.description}</CardDescription>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600 ml-1">{plan.period}</span>
+                  {/* <span className="text-4xl font-bold text-gray-900">{plan.price}</span> */}
+                  {/* <span className="text-gray-600 ml-1">{plan.period}</span> */}
                 </div>
               </CardHeader>
 
@@ -99,7 +99,7 @@ export function Plans() {
 
                 <Button
                   asChild
-                  className={`w-full mt-8 ${plan.popular ? "bg-teal-600 hover:bg-teal-700" : "bg-gray-900 hover:bg-gray-800"}`}
+                  className={`w-full mt-8 ${plan.popular ? "bg-teal-600 hover:bg-teal-700" : "bg-[#051335] hover:bg-gray-800"}`}
                 >
                   <Link href="#contact">Escolher Plano</Link>
                 </Button>

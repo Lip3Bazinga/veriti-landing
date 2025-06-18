@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Tatiabe Barboza",
+    name: "Tatiane Barboza",
     role: "Gerente de Relacionamento",
     description: "Responsável pelo atendimento personalizado e satisfação dos clientes.",
     expertise: ["Atendimento ao Cliente", "Gestão de Projetos", "Relacionamento"],
@@ -145,7 +145,7 @@ function TeamCard({ member, index, isVisible }: { member: TeamMember; index: num
             <p className="text-gray-300 leading-relaxed mb-4">{member.description}</p>
 
             {/* Expertise Tags */}
-            <div className="flex flex-wrap gap-2 justify-center mb-4">
+            {/* <div className="flex flex-wrap gap-2 justify-center mb-4">
               {member.expertise.map((skill, skillIndex) => (
                 <span
                   key={skillIndex}
@@ -154,7 +154,7 @@ function TeamCard({ member, index, isVisible }: { member: TeamMember; index: num
                   {skill}
                 </span>
               ))}
-            </div>
+            </div> */}
 
             {/* Contact Buttons - Same size */}
             <div className="flex gap-3 justify-center">
